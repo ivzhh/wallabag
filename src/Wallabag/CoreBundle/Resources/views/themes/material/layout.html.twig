@@ -62,17 +62,9 @@
             <li class="bold {% if activeRoute == 'all' %}active{% endif %}">
                 <a class="waves-effect" href="{{ path('all') }}">{{ 'menu.left.all_articles'|trans }} <span class="numberItems grey-text">{{ count_entries('all') }}</span></a>
             </li>
-            <li class="bold border-bottom {% if currentRoute == 'tags' %}active{% endif %}">
+            <li class="bold {% if currentRoute == 'tags' %}active{% endif %}">
                 <a class="waves-effect" href="{{ path('tag') }}">{{ 'menu.left.tags'|trans }} <span class="numberItems grey-text">{{ count_tags() }}</span></a>
             </li>
-            {% if activeRoute %}
-            <li class="bold">
-                <a class="waves-effect js-filters-action" href="#" data-activates="filters">{{ 'menu.top.filter_entries'|trans }}</span></a>
-            </li>
-            <li class="bold">
-                <a class="waves-effect js-filters-action" href="#" data-activates="export">{{ 'menu.top.export'|trans }}</span></a>
-            </li>
-            {% endif %}
         </ul>
         <div class="nav-panels">
             <div class="nav-panel-actions nav-panel-item">
@@ -98,6 +90,16 @@
                     <li id="button_random">
                         <a class="waves-effect tooltipped js-random-action" data-position="bottom" data-delay="50" data-tooltip="{{ 'menu.top.random_entry'|trans }}" href="{{ path('random_entry', { 'type': activeRoute }) }}">
                             <i class="material-icons">casino</i>
+                        </a>
+                    </li>
+                    <li id="button_filters">
+                        <a class="nav-panel-menu button-collapse-right tooltipped js-filters-action" data-position="bottom" data-delay="50" data-tooltip="{{ 'menu.top.filter_entries'|trans }}" href="#" data-activates="filters">
+                            <i class="material-icons">filter_list</i>
+                        </a>
+                    </li>
+                    <li id="button_export">
+                        <a class="nav-panel-menu button-collapse-right tooltipped js-export-action" data-position="bottom" data-delay="50" data-tooltip="{{ 'menu.top.export'|trans }}" href="#" data-activates="export">
+                            <i class="material-icons">file_download</i>
                         </a>
                     </li>
                     {% endif %}
